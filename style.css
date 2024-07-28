@@ -1,0 +1,76 @@
+/* Make sure the html and body take up the full height of the viewport */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.towers-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: lightblue;
+    border: 2px solid blue;
+    font-weight: bold;
+}
+
+#showTowers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#showTowers div {
+    margin: 10px;
+    text-align: center;
+}
+
+#showTowers img {
+    width: 150px;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+}
+
+.kr5-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 1.2em;
+    position: relative;
+    color: white;
+    text-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.5);
+    font-family: 'Titillium Web', sans-serif;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    line-height: 60px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    background-image: url('../assets/button/btn_left.png'), url('../assets/button/btn_right.png'), url('../assets/button/btn_center.png');
+    background-repeat: no-repeat;
+    background-size: 20px 60px, 20px 60px, calc(100% - 38px) 60px;
+    background-position: left center, right center, center center;
+    transition: all .2s;
+    letter-spacing: normal;
+    filter: drop-shadow(0px 5px 3px rgba(0, 0, 0, 0.5));
+}
+
+.kr5-btn:hover {
+    cursor: pointer;
+}
