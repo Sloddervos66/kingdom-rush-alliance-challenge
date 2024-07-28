@@ -6,6 +6,16 @@ const towerList = [
     'Necromancer', 'Elven Stargazer', 'Dwarven Flamespitter', 'Dune Sentinels', 'Rocket Gunners', 'Eldritch Channeler', 'Grim Wraiths'
 ];
 
+const heroesList = [
+    'Vesper', 'Raelyn', 'Nyru', 'Torres', 'Anya', 'Grimson', 'Broden', 'Therien', 'Onagro', 'Warhead', 'Lumenir', 'Kosmyr'
+];
+
+const mapsList = [
+    'Sea of Trees', 'The Guardian Gate', 'The Heart of the Forest', 'Emerald Treetops', 'Ravaged Outskirts', 'The Wildbeast Den',
+    'Bleak Valley', 'Carmine Mines', 'Wicked Crossing', 'Temple Courtyard', 'Canyon Plateau', 
+    'Blighted Farmlands', 'Desecrated Temple', 'Corruption Valley', 'The Eyesore Tower', 'Hunger\'s Peak' 
+];
+
 const towerImages = {
     'Royal Archers': 'assets/towers/royal_archers.png',
     'Paladin Covenant': 'assets/towers/paladin_covenant.png',
@@ -24,33 +34,51 @@ const towerImages = {
     'Battle Brewmasters': 'assets/towers/battle_brewmasters.png'
 };
 
-const heroesList = [
-    'Vesper', 'Raelyn', 'Nyru', 'Torres', 'Anya', 'Grimson', 'Broden', 'Therien', 'Onagro', 'Warhead', 'Lumenir', 'Kosmyr'
-];
-
-const mapsList = [
-    'Sea of Trees', 'The Guardian Gate', 'The Heart of the Forest', 'Emerald Treetops', 'Ravaged Outskirts', 'The Wildbeast Den',
-    'Bleak Valley', 'Carmine Mines', 'Wicked Crossing', 'Temple Courtyard', 'Canyon Plateau', 
-    'Blighted Farmlands', 'Desecrated Temple', 'Corruption Valley', 'The Eyesore Tower', 'Hunger\'s Peak' 
-];
+const heroesImages = {
+    'Vesper': 'assets/heroes/vesper.png',
+    'Raelyn': 'assets/heroes/raelyn.png',
+    'Nyru': 'assets/heroes/nyru.png',
+    'Torres': 'assets/heroes/torres.png',
+    'Anya': 'assets/heroes/anya.png',
+    'Grimson': 'assets/heroes/grimson.png',
+    'Broden': 'assets/heroes/broden.png',
+    'Therien': 'assets/heroes/therien.png',
+    'Onagro': 'assets/heroes/onagro.png',
+    'Warhead': 'assets/heroes/warhead.png',
+    'Lumenir': 'assets/heroes/lumenir.png',
+    'Kosmyr': 'assets/heroes/kosmyr.png'
+}
 
 generateTowersBtn.addEventListener('click', () => {
     const generatedTowerList = [];
+    const generatedHeroesList = [];
 
-    for (let i = 0; i < 5; i++) {
-        const randomNumber = Math.floor(Math.random() * 15); 
-        
-        if (!generatedTowerList.includes(towerList[randomNumber])) {
-            generatedTowerList.push(towerList[randomNumber]);
-        } else {
-            i--;
-        }
-    }
-    
+    generateRandomList(generatedTowerList, 5, towerList);
+    generateRandomList(generatedHeroesList, 2, heroesList);
+
     showGeneratedTowers.innerHTML = generatedTowerList.map(tower => `
         <div>
             <img src="${towerImages[tower]}" alt="${tower}" />
             <p>${tower}</p>
         </div>
     `).join('');
+
+    showGeneratedTowers.innerHTML += generatedHeroesList.map(hero => `
+        <div>
+            <img src="${heroesImages[hero]}" alt="${hero}" />
+            <p>${hero}</p>
+        </div>
+    `).join('');
 });
+
+const generateRandomList = (generatingList, numberLoop, specificList) => {
+    for (let i = 0; i < numberLoop; i++) {
+        const randomNumber = Math.floor(Math.random() * specificList.length);
+
+        if (!generatingList.includes(specificList[randomNumber])) {
+            generatingList.push(specificList[randomNumber]);
+        } else {
+            i--;
+        }
+    }
+}
