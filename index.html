@@ -4,20 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="app.js"></script>
+    <script defer src="webcomponents/nav-bar.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Kingdom Rush Alliance Tower Picker</title>
+    <title>Kingdom Rush Alliance Challenge Maker</title>
 </head>
 <body>
+    <nav-bar></nav-bar>
+    <br>
     <div class="container">
-        <div class="maps-div">
-
+        <div class="settings-container">
+            hello
         </div>
-        <div class="heroes-div">
-
+    </div>
+    <div class="main-content-container">
+        <div class="maps-container">
+            <p id="showMap"></p>
         </div>
-        <div class="towers-div">
+        <div class="towers-container">
             <p id="showTowers"></p>
             <a class="kr5-btn" id="generateTowers">Generate towers for the alliance!</a>
+        </div>
+        <div class="heroes-container">
+            <p id="showHeroes"></p>
         </div>
     </div>
 </body>
